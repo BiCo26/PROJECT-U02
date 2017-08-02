@@ -13,19 +13,19 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
+app.listen(PORT, function(){
   console.log(`Listening on port ${PORT}`);
 })
 
-app.get('/', (req, res) => {
+app.get('/', function(req, res){
   // res.send('test1')
-  res.render('viewdoc');
+  res.render('welcome');
 });
 
 // const todosRoutes = require('./routes/todo-routes');
 // app.use('/todos', todosRoutes);
 
-app.use('*', (req, res) => {
+app.use('*', function(req, res){
   res.status(400).json({
     message: 'Not found!',
   });
