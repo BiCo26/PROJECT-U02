@@ -1,12 +1,12 @@
 DROP DATABASE IF EXISTS users_profile;
 
-CREATE DATABASE IF EXISTS users_profile;
+CREATE DATABASE users_profile;
 
 \c users_profile
 
 DROP TABLE IF EXISTS users;
 
-CREATE TABLE IF NOT EXIST users (
+CREATE TABLE users (
   id BIGSERIAL PRIMARY KEY,
   username VARCHAR(255),
   password_digest INTEGER,

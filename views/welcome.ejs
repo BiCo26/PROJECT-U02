@@ -1,6 +1,13 @@
+<!-- go to user profile -->
+
 <% include ./partials/boilerplate %>
-
-  <a href="./login/">Login</a>
-  <a href="./register/">Register</a>
-
+  <h3>Login</h3>
+  <form action="userhome">
+    <input placeholder = "username" type="text"><br>
+    <input placeholder = "password" type="password"><br>
+    <input placeholder = "email" type="text"><br>
+    <input placeholder = "zip code" type="text"><br>
+    <input value = "login" type="submit">
+  </form>
+  <a href="./register">New User?</a>
 <% include ./partials/end %>

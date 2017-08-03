@@ -2,11 +2,11 @@ const db = require('../db/config');
 
 const User = {};
 
-User.findAll = () => {
+User.findAll = function(){
   return db.query('SELECT * FROM users');
 };
 
-User.findById = (id) => {
+User.findById = function(id){
   return db.oneOrNone(`
     SELECT *
     FROM users
@@ -14,7 +14,7 @@ User.findById = (id) => {
   `, [id]);
 };
 
-User.create = (users) => {
+User.create = function(users){
   return db.one(`
     INSERT INTO users
     (username, password_digest, email, zip)
@@ -23,7 +23,7 @@ User.create = (users) => {
   `, [users.username, users.password_digest, users.email, users.zip]);
 };
 
-User.update = (users, id) => {
+User.update = function(users, id){
   return db.one(`
     UPDATE users SET
     username = $1,
@@ -35,7 +35,7 @@ User.update = (users, id) => {
   `, [users.username, users.password_digest, users.email, users.zip, id]);
 };
 
-User.destroy = (id) => {
+User.destroy = function(id){
   return db.none(`
     DELETE FROM users
     WHERE id = $1
