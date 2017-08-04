@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-// const logger = require('morgan');
+const logger = require('morgan');
 
 // for auth
 const methodOverride = require ('method-override');
@@ -13,46 +13,43 @@ const fetch = require('isomorphic-fetch');
 const app = express();
 
 // for auth
-// app.use(logger('dev'));
+require('dotenv').config();
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
 // for auth
-// app.use(cookieParser());
-// app.use(session({
-//   secret: process.env.SECRET_KEY,
-//   resave: false,
-//   saveUninitialized: true,
-// }));
-// app.use(passport.initialize());
-// app.use(passport.session());
+app.use(cookieParser());
+app.use(session({
+  secret: process.env.SECRET_KEY,
+  resave: false,
+  saveUninitialized: true,
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, function(){
-  console.log(`Listening on port ${PORT}`);
+const port = process.env.PORT || 3000;
+app.listen(port, function(){
+  console.log(`Listening on port ${port}`);
 })
+
+// for auth
+app.use(logger('dev'));
 
 app.get('/', function(req, res){
   // res.send('test1')
   res.render('welcome');
 });
 
-// const loginRoute = require('./routes/login-route');
-app.use('/login', function(req,res){
-  res.render('login')
-});
+const loginRoute = require('./routes/login-route');
+app.use('/login', loginRoute);
 
-// const regRoute = require('./routes/register-route');
-app.use('/register', function(req,res){
-  res.render('register')
-});
-// const regRoute = require('./routes/register-route');
-// app.use('/register', regRoute);
+const regRoute = require('./routes/register-route');
+app.use('/register', regRoute);
 
 app.use('*', function(req, res){
   res.status(400).json({
