@@ -7,7 +7,7 @@ loginRoutes.get('/', loginController.index);
 loginRoutes.post('/', loginController.create);
 
 loginRoutes.get('/login', function(req,res){
-  res.render('views/login',{});
+  res.render('views/login');
 });
 
 loginRoutes.get('/login', loginController.show);

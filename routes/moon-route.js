@@ -1,13 +1,13 @@
 const express = require('express');
-const registerRoutes = express.Router();
+const moonRoutes = express.Router();
 
-const registerController = require('../controllers/register-controller');
+const moonController = require('../controllers/moon-controller');
 
-registerRoutes.get('/', registerController.index);
-registerRoutes.post('/', registerController.create);
+moonRoutes.get('/', moonController.index);
+moonRoutes.post('/', moonController.create);
 
-registerRoutes.get('/register', function(req,res){
-  res.render('./views/register');
+moonRoutes.get('/moon', function(req,res){
+  res.render('./views/moon');
 });
 
 // registerRoutes.get('/register', registerController.show);

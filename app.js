@@ -13,21 +13,21 @@ const fetch = require('isomorphic-fetch');
 const app = express();
 
 // for auth
-require('dotenv').config();
+// require('dotenv').config();
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
 // for auth
-app.use(cookieParser());
-app.use(session({
-  secret: process.env.SECRET_KEY,
-  resave: false,
-  saveUninitialized: true,
-}));
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(cookieParser());
+// app.use(session({
+//   secret: process.env.SECRET_KEY,
+//   resave: false,
+//   saveUninitialized: true,
+// }));
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -38,7 +38,7 @@ app.listen(port, function(){
 })
 
 // for auth
-app.use(logger('dev'));
+// app.use(logger('dev'));
 
 app.get('/', function(req, res){
   // res.send('test1')
@@ -47,6 +47,9 @@ app.get('/', function(req, res){
 
 const loginRoute = require('./routes/login-route');
 app.use('/login', loginRoute);
+
+const moonRoute = require('./routes/moon-route');
+app.use('/moon', moonRoute);
 
 const regRoute = require('./routes/register-route');
 app.use('/register', regRoute);
