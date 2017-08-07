@@ -1,5 +1,5 @@
 # PhaSe.t Wireframe
-PhaSe.t will be an app that schedules routines based on the phase of the moon, whether it be religious implications, surfing or just feeling more in tune with celestrial precision. 
+PhaSe.t will be an app that schedules routines based on the phase of the moon, whether it be religious implications, surfing or just feeling more in tune with celestrial precision. This app will use three different API's for functional completion. One will be based on tidal conditions, moon phases(of course) and lastly the weather API for current location. 
 
 ## Login Page
 ![Login Page](/public/images/20170807_083734.jpg)
