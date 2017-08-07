@@ -3,6 +3,9 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
 
+// const moon = require('lune');
+// alert(current_phase);
+
 // for auth
 const methodOverride = require ('method-override');
 const cookieParser = require ('cookie-parser');
@@ -44,9 +47,6 @@ app.get('/', function(req, res){
   // res.send('test1')
   res.render('welcome');
 });
-
-const loginRoute = require('./routes/login-route');
-app.use('/login', loginRoute);
 
 const moonRoute = require('./routes/moon-route');
 app.use('/moon', moonRoute);

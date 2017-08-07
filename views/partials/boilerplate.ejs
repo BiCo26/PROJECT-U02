@@ -3,8 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <title>Document</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <% if(moon.phase>= 0.6){ %>
+  <% document.querySelector('body').className ="twothirds" %>
+  <% } %>
   <h1>PhaSE.T</h1>
   <h2 id="time"></h2>
   <!-- randomized quotes DOM manipulated by js -->

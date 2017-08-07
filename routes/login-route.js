@@ -10,8 +10,8 @@ loginRoutes.get('/login', function(req,res){
   res.render('views/login');
 });
 
-loginRoutes.get('/login', loginController.show);
-loginRoutes.put('/login', loginController.update);
-loginRoutes.delete('/login', loginController.delete);
+// loginRoutes.get('/login', loginController.show);
+// loginRoutes.put('/login', loginController.update);
+// loginRoutes.delete('/login', loginController.delete);
 
 module.exports = loginRoutes;

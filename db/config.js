@@ -9,7 +9,7 @@ const pgp = require('pg-promise')(options);
 const db = (function(){
   if (process.env.NODE_ENV === 'development' || !process.env.NODE_ENV) {
     return pgp({
-      database: 'users_profile',
+      database: 'phase_base',
       port: 5432,
       host: 'localhost',
     });

@@ -7,7 +7,7 @@ moonRoutes.get('/', moonController.index);
 moonRoutes.post('/', moonController.create);
 
 moonRoutes.get('/moon', function(req,res){
-  res.render('./views/moon');
+  res.render('./views/moon/moon-start');
 });
 
 // registerRoutes.get('/register', registerController.show);
@@ -17,4 +17,4 @@ moonRoutes.get('/moon', function(req,res){
 // const adminRoutes = require('./admin-route');
 // registerRoutes.use('/admin', adminRoutes);
 
-module.exports = registerRoutes;
+module.exports = moonRoutes;
